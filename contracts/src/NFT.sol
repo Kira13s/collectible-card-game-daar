@@ -11,17 +11,16 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 /// @dev Compliant with OpenZeppelin's implementation of the ERC721 spec draft
 contract NFT is ERC721, Ownable {
     uint256 private _nextTokenId = 1; // Pour générer des IDs uniques pour chaque copie de carte
-    string public collectionName;
 
     // PKMN pour pokémon
-    constructor(string memory _name) ERC721(_name, "PKMN") Ownable(msg.sender) {}
+    constructor(address initialOwner) ERC721("NFT", "PKMN") Ownable(initialOwner) {}
 
     // Fonction pour créer une nouvelle copie de carte
-    function safeMint(address _to) public onlyOwner {
+    function safeMint(address _to, string memory tokenURI) public onlyOwner {
         require(_to != address(0), "Invalid address");
         uint256 tokenId = _nextTokenId++;
         _safeMint(_to, tokenId);
+        _setTokenURI(tokenId, tokenURI);
     }
 
 }
-
