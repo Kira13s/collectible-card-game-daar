@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
 import "./Admin.sol";
 import "./User.sol";
 
@@ -13,7 +12,7 @@ import "./User.sol";
 contract NFT is ERC721 {
     using Counters for Counters.Counter;
 
-    Counters.Counter private _nextTokenId; // Pour générer des IDs uniques pour chaque copie de carte
+    uint private _nextTokenId = 1; // Pour générer des IDs uniques pour chaque copie de carte
     Admin private  admin;
     uint public cardNumber;
     string public img;
@@ -27,7 +26,6 @@ contract NFT is ERC721 {
     constructor(uint _cadrdNumber, string memory _img) ERC721("NFT", "PKMN") {
         cardNumber = _cadrdNumber;
         img = _img;
-        _nextTokenId.increment();
     }
 
     /// @dev Access modifier for admin-only functionality
@@ -65,16 +63,15 @@ contract NFT is ERC721 {
     /// @dev Mints a token to an address with a tokenId.
     /// @param _to address of the future owner of the token
     function mintTo(address _to) public onlyAdmin {
-        uint256 currentTokenId = _nextTokenId.current();
-        _nextTokenId.increment();
-        _safeMint(_to, currentTokenId);
+        _safeMint(_to, _nextTokenId);
+        _nextTokenId++;
     }
 
     
     /// @notice Returns the total tokens minted so far.
     /// @dev 1 is always subtracted from the Counter since it tracks the next available tokenId.
     function totalSupply() public view returns (uint256) {
-        return _nextTokenId.current() - 1;
+        return _nextTokenId - 1;
     }
 
     /* Fonction a implémenté quand on aure une API pour le frontend
