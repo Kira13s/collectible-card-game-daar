@@ -37,10 +37,11 @@ contract Main{
 		collection.addCard(_nameCard, _URI);
 	}
 
-	function mintAndAssign(string calldata _nameCollection, string calldata _nameCard, address _to) external onlyAdmin {
+	function mintAndAssign(string calldata _nameCollection, string calldata _nameCard, address _to, address _tokenUser) external onlyAdmin {
 		Collection collection = collections[_collectionName];
 		require(address(collection) != address(0), "Collection does not exist.");
 		uint256 cardId = collection.getCard(_nameCard).mintTo(_to);
-    	addCardtoUser(cardId);
+		User user =users(_tokenUser);
+    	user.addCardtoUser(cardId);
 	}
 }
