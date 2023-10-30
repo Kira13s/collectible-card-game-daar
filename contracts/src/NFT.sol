@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.16;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "./Admin.sol";
@@ -10,7 +10,6 @@ import "./User.sol";
 /// @notice The contract represent a card from a specific collection that can be mint and assign
 /// @dev Compliant with OpenZeppelin's implementation of the ERC721 spec draft
 contract NFT is ERC721 {
-    using Counters for Counters.Counter;
 
     uint private _nextTokenId = 1; // Pour générer des IDs uniques pour chaque copie de carte
     Admin private  admin;
