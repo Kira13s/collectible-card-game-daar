@@ -1,0 +1,14 @@
+/* TopBar.css */
+.topBar {
+  background-color: #0074cc; /* Couleur de fond de la barre supérieure */
+  color: white; /* Couleur du texte */
+  padding: 10px; /* Espace intérieur autour du texte */
+}
+
+.menu {
+  background-color: #0074cc; /* Couleur de fond de la barre supérieure */
+  color: white; /* Couleur du texte */
+  padding: 10px;
+}
+
+/* Autres styles CSS */

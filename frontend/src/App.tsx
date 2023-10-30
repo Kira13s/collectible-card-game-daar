@@ -22,7 +22,6 @@ const useAffect = (
   }, dependencies)
 }
 
-
 /*const useWallet = () => {
   const [details, setDetails] = useState<ethereum.Details>()
   const [contract, setContract] = useState<main.Main>()
@@ -41,24 +40,19 @@ const useAffect = (
 }*/
 
 const useNft = () => {
-  const [nftData, setNftData] = useState(null);
+  const [nftData, setNftData] = useState(null)
   useEffect(() => {
     // Recup les infos du NFT vers l'API en fonction de l'ID
     fetch('/nft/1') // remplacer '1' par l'ID du NFT à recuperer
-        .then((response) => response.json())
-        .then((data) => setNftData(data))
-        .catch((error) => console.error(error));
-}, []);
-
+      .then(response => response.json())
+      .then(data => setNftData(data))
+      .catch(error => console.error(error))
+  }, [])
 }
 
 //utiliser le nft et le wallet
 export const App = () => {
   //const wallet = useWallet();
-  const nft = useNft();
-  return (
-    <div className={styles.body}>
-      <h1>Welcome to Pokémon TCG</h1>
-    </div>
-  )
+  const nft = useNft()
+  return <div className={styles.body}></div>
 }
