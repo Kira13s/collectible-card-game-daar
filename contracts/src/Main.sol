@@ -4,25 +4,24 @@ pragma solidity ^0.8;
 import "./Admin.sol";
 import "./Collection.sol";
 import "./NFT.sol";
+import "./User.sol";
 
 /// @title A contract that manages the collections and the NFT
 /// @author The name of the author
 /// @notice The contract to retrieve all informations from the different sets
-contract Main{
+contract Main is Admin{
 	int private count;
 	mapping(string => Collection) private collections;
 	mapping(address => User) private users;
-	NFT private nft;
 
 	constructor(address _initialOwner) Admin(_initialOwner) {
 		count = 0;
-		nft = new NFT(_initialOwner);
 	}
 
 
-	function createCollection(string calldata _name, int _cardCount) external onlyAdmin{
-		require(collections[_name] == Collection(0x0), "Collection with the same name already exists.");
-		collections[_name] = new Collection(_name, _cardCount, owner());
+	function createCollection(string calldata _name, uint _cardCount) external onlyOwner{
+		require(address(collections[_name]) == address(0), "Collection with the same name already exists.");
+		collections[_name] = new Collection(_name, _cardCount);
 		count++;
 	}
 
@@ -30,18 +29,18 @@ contract Main{
 	function AddCardToCollection(string memory _collectionName, string memory _nameCard, string memory _URI)
 	external onlyAdmin{ 
 	*/
-	function AddCardToCollection(string memory _collectionName, string memory _nameCard, 
-			uint _cadrdNumber, string memory _img) external onlyAdmin {
+	function AddCardToCollection(string memory _collectionName, 
+			uint _cardNumber, string memory _img) external onlyOwner {
 		Collection collection = collections[_collectionName];
 		require(address(collection) != address(0), "Collection does not exist.");
-		collection.addCard(_nameCard, _URI);
+		collection.addCard(_cardNumber, _img);
 	}
 
-	function mintAndAssign(string calldata _nameCollection, string calldata _nameCard, address _to, address _tokenUser) external onlyAdmin {
-		Collection collection = collections[_collectionName];
+	function mintAndAssign(string calldata _nameCollection, uint _cardNumber, address _to) external onlyOwner {
+		Collection collection = collections[_nameCollection];
 		require(address(collection) != address(0), "Collection does not exist.");
-		uint256 cardId = collection.getCard(_nameCard).mintTo(_to);
-		User user =users(_tokenUser);
-    	user.addCardtoUser(cardId);
+		NFT card = collection.getCard(_cardNumber);
+		card.mintTo(_to);
+		users[_to].addCardtoUser(card);
 	}
 }
