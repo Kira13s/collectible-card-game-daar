@@ -11,6 +11,7 @@ import "./NFT.sol";
 contract Main{
 	int private count;
 	mapping(string => Collection) private collections;
+	mapping(address => User) private users;
 	NFT private nft;
 
 	constructor(address _initialOwner) Admin(_initialOwner) {
@@ -39,6 +40,7 @@ contract Main{
 	function mintAndAssign(string calldata _nameCollection, string calldata _nameCard, address _to) external onlyAdmin {
 		Collection collection = collections[_collectionName];
 		require(address(collection) != address(0), "Collection does not exist.");
-		collection.getCard(_nameCard).mintTo(_to);
+		uint256 cardId = collection.getCard(_nameCard).mintTo(_to);
+    	addCardtoUser(cardId);
 	}
 }
