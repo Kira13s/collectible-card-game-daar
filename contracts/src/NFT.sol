@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "./Admin.sol";
-
+import "./User.sol";
 
 /// @title A contract that represent a card
 /// @author The name of the author
@@ -13,19 +13,53 @@ import "./Admin.sol";
 contract NFT is ERC721 {
     using Counters for Counters.Counter;
 
-    Counters.Counter private _nextTokenId = 1; // Pour générer des IDs uniques pour chaque copie de carte
+    Counters.Counter private _nextTokenId; // Pour générer des IDs uniques pour chaque copie de carte
+    Admin private  admin;
     uint public cardNumber;
     string public img;
     /*Actuellement, on stocke les champs des métadonnée. Mais quand l'API sera créé,
     il faudra stocker l'uri de notre API: string public URI */
 
+    address[] public  owners;
+    mapping(address => uint256) private indexesOwner;
+
     // PKMN pour pokémon
-    constructor(string memory _name, uint _cadrdNumber, string memory _img) ERC721(_name, "PKMN") {
+    constructor(uint _cadrdNumber, string memory _img) ERC721("NFT", "PKMN") {
         cardNumber = _cadrdNumber;
         img = _img;
         _nextTokenId.increment();
     }
 
+    /// @dev Access modifier for admin-only functionality
+    modifier onlyAdmin() {
+        require(msg.sender == admin.owner());
+        _;
+    }
+
+
+    function _update(address to, uint256 tokenId, address auth) internal override(ERC721) returns (address){
+        address res = super._update(to, tokenId, auth);
+        address from = _ownerOf(tokenId);
+
+        // Cas où, from ne posséde plus de NFT
+        if(balanceOf(from) == 0) {
+            uint256 index = indexesOwner[from];
+
+            address lastOwner = owners[owners.length - 1];
+            owners[index - 1] = lastOwner;
+            indexesOwner[lastOwner] = index;
+
+            delete indexesOwner[from];
+            owners.pop();
+        }
+
+        if (indexesOwner[to] == 0) {
+            owners.push(to);
+            indexesOwner[to] = owners.length;
+        }
+        
+        return res;
+    }
 
     /// @notice To create a new token
     /// @dev Mints a token to an address with a tokenId.
