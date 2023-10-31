@@ -21,7 +21,7 @@ contract Main is Admin{
 
 	function createCollection(string calldata _name, uint _cardCount) external onlyOwner{
 		require(address(collections[_name]) == address(0), "Collection with the same name already exists.");
-		collections[_name] = new Collection(_name, _cardCount);
+		collections[_name] = new Collection(_name, _cardCount, this);
 		count++;
 	}
 

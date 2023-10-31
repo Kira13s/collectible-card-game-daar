@@ -22,9 +22,10 @@ contract NFT is ERC721 {
     mapping(address => uint256) private indexesOwner;
 
     // PKMN pour pokémon
-    constructor(uint _cadrdNumber, string memory _img) ERC721("NFT", "PKMN") {
+    constructor(uint _cadrdNumber, string memory _img, Admin _admin) ERC721("NFT", "PKMN") {
         cardNumber = _cadrdNumber;
         img = _img;
+        admin = _admin;
     }
 
     /// @dev Access modifier for admin-only functionality

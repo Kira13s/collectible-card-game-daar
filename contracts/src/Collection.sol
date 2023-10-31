@@ -16,9 +16,10 @@ contract Collection {
 	// Mapping from name of the card to the card
 	mapping(uint => NFT) private cards;
 
-	constructor(string memory _name, uint _cardCount) {
+	constructor(string memory _name, uint _cardCount, admin _admin) {
 		name = _name;
 		cardCount = _cardCount;
+		admin = _admin;
 		size = 0;
 	}
 
