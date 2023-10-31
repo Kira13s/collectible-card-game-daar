@@ -34,4 +34,13 @@ const config: HardhatUserConfig = {
   },
 }
 
+module.exports = {
+  defaultNetwork: "hardhat",
+  networks: {
+      hardhat: {
+          blockGasLimit: 100000000
+      },
+  }
+}
+
 export default config
