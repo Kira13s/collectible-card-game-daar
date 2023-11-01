@@ -3,6 +3,9 @@ pragma solidity ^0.8.19;
 
 import "./NFT.sol";
 
+/// @title That contract manage un user and its NFTs
+/// @author The name of the author
+/// @notice Keep track of a user's NFTs.
 contract User{
 	string public name;
     NFT[] public  cards;
@@ -12,6 +15,7 @@ contract User{
         name = _name;
     }
 
+    
     function contains(NFT card) internal  view returns(bool) {
         return indexes[card] != 0;
     }

@@ -4,6 +4,9 @@ pragma solidity ^0.8.19;
 import "./Admin.sol";
 import "./NFT.sol";
 
+/// @title A contract that represent a set of NFT
+/// @author The name of the author
+/// @notice Stores information on the cards in the collection
 contract Collection {
   Admin private  admin;
   string public name;
@@ -29,6 +32,10 @@ contract Collection {
   /*  création avec une URI
 	function addCard(string memory _name, string memory _URI) external onlyAdmin{ 
 	*/
+
+  /// Ajoute une carte à la collection
+  /// @param _cardNumber id de la carte
+  /// @param _img image de la carte
 	function addCard(uint _cardNumber, string memory _img) external onlyAdmin{
 		require(size < cardCount, "Collection is full.");
 		NFT newCard = new NFT(_cardNumber, _img, admin);
@@ -36,6 +43,8 @@ contract Collection {
 		size++;
 	}
 
+  /// Retourne une carte de la collection
+  /// @param _cardNumber id de la carte à retourné
   function getCard(uint _cardNumber) public view returns (NFT) {
 		NFT card = cards[_cardNumber];
 		require(address(card) != address(0), "Card does not exist.");
