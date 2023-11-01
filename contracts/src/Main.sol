@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 
 import "./Admin.sol";
 import "./Collection.sol";
@@ -14,7 +14,7 @@ contract Main is Admin{
 	mapping(string => Collection) private collections;
 	mapping(address => User) private users;
 
-	constructor(address _initialOwner) Admin(_initialOwner) {
+	constructor() {
 		count = 0;
 	}
 

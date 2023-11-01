@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.16;
+pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "./Admin.sol";
-import "./User.sol";
 
 /// @title A contract that represent a card
 /// @author The name of the author
