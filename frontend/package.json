@@ -2,13 +2,15 @@
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite --open",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "node-fetch": "^3.3.2",
+    "pokemontcgsdk": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "yarn": "^1.22.19"
@@ -20,6 +22,6 @@
     "ethers": "^5.7.2",
     "typescript": "^4.6.4",
     "vite": "^3.1.0",
-    "web3": "^1.8.0"
+    "web3": "^4.2.1"
   }
 }

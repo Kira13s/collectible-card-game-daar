@@ -16,6 +16,14 @@ header {
   background-size: cover;
 }
 
+#content {
+  padding-left: 30px;
+}
+
+#search-results {
+  text-align: center;
+}
+
 .navbar {
   position: absolute;
   margin: 50px;
@@ -62,6 +70,40 @@ header {
   width: 60px;
 }
 
+.card-container {
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.card-container-recherche {
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.img-container-recherche {
+  margin: 20px;
+  text-align: center;
+}
+.img-container {
+  margin: 20px;
+  text-align: center;
+}
+
+.boutonPage {
+  align-items: center;
+  text-align: center;
+}
+
+.recherche {
+  padding-top: 150px;
+  padding-left: 80%;
+}
+
+/* Côté responsive => surtout pour le menu */
 @media screen and (max-width: 900px) {
   .navbar {
     padding: 0;
@@ -69,7 +111,7 @@ header {
 
   .navbar .logo {
     position: absolute;
-    width: 150px; /* Ajustez la largeur en fonction de la taille souhaitée */
+    width: 150px;
     left: 10px;
     top: 20px;
   }

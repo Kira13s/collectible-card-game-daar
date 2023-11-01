@@ -1,0 +1,23 @@
+[
+  {
+    "id": "base1-4",
+    "name": "Charizard",
+    "images": {
+      "small": "https://images.pokemontcg.io/base1/4.png"
+    }
+  },
+  {
+    "id": "base1-5",
+    "name": "Blastoise",
+    "images": {
+      "small": "https://images.pokemontcg.io/base1/5.png"
+    }
+  },
+  {
+    "id": "base1-6",
+    "name": "Venusaur",
+    "images": {
+      "small": "https://images.pokemontcg.io/base1/6.png"
+    }
+  }
+]

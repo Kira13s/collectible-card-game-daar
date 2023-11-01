@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Affichage d'images depuis un fichier JSON avec Fetch</title>
+  </head>
+  <body>
+    <h1>Images depuis le fichier JSON</h1>
+    <div id="image-container">
+      <!-- Les images seront affichées ici -->
+    </div>
+
+    <script>
+      // URL du fichier JSON
+      const jsonUrl = 'ToutesCartes.json'
+
+      // Fonction pour afficher les images
+      function displayImages(data) {
+        const imageContainer = document.getElementById('image-container')
+        data.forEach(item => {
+          const imgElement = document.createElement('img')
+          imgElement.src = item.images.small
+          imageContainer.appendChild(imgElement)
+        })
+      }
+
+      // Charger les données JSON avec fetch
+      fetch(jsonUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Erreur de chargement du fichier JSON')
+          }
+          return response.json()
+        })
+        .then(data => {
+          if (Array.isArray(data)) {
+            displayImages(data)
+          } else {
+            console.error(
+              "Le fichier JSON ne contient pas un tableau d'objets."
+            )
+          }
+        })
+        .catch(error => {
+          console.error('Erreur de chargement des données :', error)
+        })
+    </script>
+  </body>
+</html>
