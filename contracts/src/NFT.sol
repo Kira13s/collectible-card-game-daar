@@ -12,7 +12,7 @@ contract NFT is ERC721 {
 
     uint private _nextTokenId = 1; // Pour générer des IDs uniques pour chaque copie de carte
     Admin private  admin;
-    uint public cardNumber;
+    string public cardNumber;
     string public img;
     /*Actuellement, on stocke les champs des métadonnée. Mais quand l'API sera créé,
     il faudra stocker l'uri de notre API: string public URI */
@@ -21,7 +21,7 @@ contract NFT is ERC721 {
     mapping(address => uint256) private indexesOwner;
 
     // PKMN pour pokémon
-    constructor(uint _cadrdNumber, string memory _img, Admin _admin) ERC721("NFT", "PKMN") {
+    constructor(string memory _cadrdNumber, string memory _img, Admin _admin) ERC721("NFT", "PKMN") {
         cardNumber = _cadrdNumber;
         img = _img;
         admin = _admin;

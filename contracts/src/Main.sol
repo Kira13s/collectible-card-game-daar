@@ -43,7 +43,7 @@ contract Main is Admin{
 	/// @param _cardNumber id de la carte 
 	/// @param _img image de la carte
 	function AddCardToCollection(string memory _collectionName, 
-			uint _cardNumber, string memory _img) external onlyOwner {
+			string memory _cardNumber, string memory _img) external onlyOwner {
 		collectionManager.AddCardToCollection(_collectionName, _cardNumber, _img);
 	}
 
@@ -51,7 +51,7 @@ contract Main is Admin{
 	/// @param _nameCollection collection de la carte à mint
 	/// @param _cardNumber id de la carte choisie
 	/// @param _to addresse de l'utilisateur à qui on va affecté la carte
-	function mintAndAssign(string calldata _nameCollection, uint _cardNumber, address _to) external onlyOwner {
+	function mintAndAssign(string calldata _nameCollection, string memory _cardNumber, address _to) external onlyOwner {
 		Collection collection = getCollection(_nameCollection);
 		NFT card = collection.getCard(_cardNumber);
 		card.mintTo(_to);
@@ -72,7 +72,7 @@ contract Main is Admin{
 	/// @param _boosterName Nom du booster dans lequel on va ajouté une carte
 	/// @param _collectionName Nom de la collection de la carte à ajouté
 	/// @param _cardNumber Id de la carte à ajouté
-	function addCardToBooster(string memory _boosterName, string memory _collectionName, uint _cardNumber)
+	function addCardToBooster(string memory _boosterName, string memory _collectionName, string memory _cardNumber)
 		external onlyOwner {
 			Collection collection = getCollection(_collectionName);
 

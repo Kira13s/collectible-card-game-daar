@@ -19,6 +19,10 @@ contract CollectionManager {
         _;
     }
 
+    /*function getCollection()  returns () {
+        
+    }*/
+
     /**
      * @dev See {Main- createCollection}.
      */
@@ -45,7 +49,7 @@ contract CollectionManager {
      * @dev See {Main- AddCardToCollection}.
      */
     function AddCardToCollection(string memory _collectionName, 
-			uint _cardNumber, string memory _img) external onlyAdmin {
+			string memory _cardNumber, string memory _img) external onlyAdmin {
 		Collection collection = getCollection(_collectionName);
 		collection.addCard(_cardNumber, _img);
 	}
