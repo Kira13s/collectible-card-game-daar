@@ -13,12 +13,8 @@
     "concurrently": "^7.5.0"
   },
   "dependencies": {
-<<<<<<< Updated upstream
-    "@openzeppelin/contracts": "^4.9.3"
-=======
     "@openzeppelin/contracts": "^5.0.0",
     "pokemontcgsdk": "^2.0.0",
     "web3": "^4.2.1"
->>>>>>> Stashed changes
   }
 }

@@ -33,7 +33,9 @@ contract NFT is ERC721 {
         _;
     }
 
-
+    /**
+     * @dev See {ERC721- _update}.
+     */
     function _update(address to, uint256 tokenId, address auth) internal override(ERC721) returns (address){
         address res = super._update(to, tokenId, auth);
         address from = _ownerOf(tokenId);
