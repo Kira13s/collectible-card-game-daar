@@ -1,0 +1,362 @@
+[
+  {
+    "logo": "https://images.pokemontcg.io/hgss4/logo.png", 
+    "symbol": "https://images.pokemontcg.io/hgss4/symbol.png", 
+    "id": "hgss4"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/xy5/logo.png", 
+    "symbol": "https://images.pokemontcg.io/xy5/symbol.png", 
+    "id": "xy5"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/pl1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/pl1/symbol.png", 
+    "id": "pl1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/dp3/logo.png", 
+    "symbol": "https://images.pokemontcg.io/dp3/symbol.png", 
+    "id": "dp3"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/det1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/det1/symbol.png", 
+    "id": "det1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/dv1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/dv1/symbol.png", 
+    "id": "dv1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/mcd19/logo.png", 
+    "symbol": "https://images.pokemontcg.io/mcd19/symbol.png", 
+    "id": "mcd19"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/pl3/logo.png", 
+    "symbol": "https://images.pokemontcg.io/pl3/symbol.png", 
+    "id": "pl3"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/ex12/logo.png", 
+    "symbol": "https://images.pokemontcg.io/ex12/symbol.png", 
+    "id": "ex12"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/ex3/logo.png", 
+    "symbol": "https://images.pokemontcg.io/ex3/symbol.png", 
+    "id": "ex3"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/ru1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/ru1/symbol.png", 
+    "id": "ru1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/ecard2/logo.png", 
+    "symbol": "https://images.pokemontcg.io/ecard2/symbol.png", 
+    "id": "ecard2"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/base4/logo.png", 
+    "symbol": "https://images.pokemontcg.io/base4/symbol.png", 
+    "id": "base4"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/hgss1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/hgss1/symbol.png", 
+    "id": "hgss1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/ex11/logo.png", 
+    "symbol": "https://images.pokemontcg.io/ex11/symbol.png", 
+    "id": "ex11"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/ex7/logo.png", 
+    "symbol": "https://images.pokemontcg.io/ex7/symbol.png", 
+    "id": "ex7"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/gym1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/gym1/symbol.png", 
+    "id": "gym1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/base3/logo.png", 
+    "symbol": "https://images.pokemontcg.io/base3/symbol.png", 
+    "id": "base3"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/sm9/logo.png", 
+    "symbol": "https://images.pokemontcg.io/sm9/symbol.png", 
+    "id": "sm9"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/xy2/logo.png", 
+    "symbol": "https://images.pokemontcg.io/xy2/symbol.png", 
+    "id": "xy2"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/pop6/logo.png", 
+    "symbol": "https://images.pokemontcg.io/pop6/symbol.png", 
+    "id": "pop6"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/xy11/logo.png", 
+    "symbol": "https://images.pokemontcg.io/xy11/symbol.png", 
+    "id": "xy11"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/ex14/logo.png", 
+    "symbol": "https://images.pokemontcg.io/ex14/symbol.png", 
+    "id": "ex14"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/sm12/logo.png", 
+    "symbol": "https://images.pokemontcg.io/sm12/symbol.png", 
+    "id": "sm12"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/bw1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/bw1/symbol.png", 
+    "id": "bw1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/sm115/logo.png", 
+    "symbol": "https://images.pokemontcg.io/sm115/symbol.png", 
+    "id": "sm115"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/si1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/si1/symbol.png", 
+    "id": "si1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/dp1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/dp1/symbol.png", 
+    "id": "dp1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/sm3/logo.png", 
+    "symbol": "https://images.pokemontcg.io/sm3/symbol.png", 
+    "id": "sm3"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/pop7/logo.png", 
+    "symbol": "https://images.pokemontcg.io/pop7/symbol.png", 
+    "id": "pop7"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/gym2/logo.png", 
+    "symbol": "https://images.pokemontcg.io/gym2/symbol.png", 
+    "id": "gym2"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/col1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/col1/symbol.png", 
+    "id": "col1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/ex9/logo.png", 
+    "symbol": "https://images.pokemontcg.io/ex9/symbol.png", 
+    "id": "ex9"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/bw10/logo.png", 
+    "symbol": "https://images.pokemontcg.io/bw10/symbol.png", 
+    "id": "bw10"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/swsh35/logo.png", 
+    "symbol": "https://images.pokemontcg.io/swsh35/symbol.png", 
+    "id": "swsh35"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/xy7/logo.png", 
+    "symbol": "https://images.pokemontcg.io/xy7/symbol.png", 
+    "id": "xy7"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/sm1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/sm1/symbol.png", 
+    "id": "sm1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/ex13/logo.png", 
+    "symbol": "https://images.pokemontcg.io/ex13/symbol.png", 
+    "id": "ex13"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/sm2/logo.png", 
+    "symbol": "https://images.pokemontcg.io/sm2/symbol.png", 
+    "id": "sm2"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/base5/logo.png", 
+    "symbol": "https://images.pokemontcg.io/base5/symbol.png", 
+    "id": "base5"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/xy4/logo.png", 
+    "symbol": "https://images.pokemontcg.io/xy4/symbol.png", 
+    "id": "xy4"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/bw11/logo.png", 
+    "symbol": "https://images.pokemontcg.io/bw11/symbol.png", 
+    "id": "bw11"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/ex4/logo.png", 
+    "symbol": "https://images.pokemontcg.io/ex4/symbol.png", 
+    "id": "ex4"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/bw4/logo.png", 
+    "symbol": "https://images.pokemontcg.io/bw4/symbol.png", 
+    "id": "bw4"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/bw9/logo.png", 
+    "symbol": "https://images.pokemontcg.io/bw9/symbol.png", 
+    "id": "bw9"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/base1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/base1/symbol.png", 
+    "id": "base1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/pop3/logo.png", 
+    "symbol": "https://images.pokemontcg.io/pop3/symbol.png", 
+    "id": "pop3"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/dp4/logo.png", 
+    "symbol": "https://images.pokemontcg.io/dp4/symbol.png", 
+    "id": "dp4"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/bw7/logo.png", 
+    "symbol": "https://images.pokemontcg.io/bw7/symbol.png", 
+    "id": "bw7"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/ex8/logo.png", 
+    "symbol": "https://images.pokemontcg.io/ex8/symbol.png", 
+    "id": "ex8"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/bw5/logo.png", 
+    "symbol": "https://images.pokemontcg.io/bw5/symbol.png", 
+    "id": "bw5"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/pop5/logo.png", 
+    "symbol": "https://images.pokemontcg.io/pop5/symbol.png", 
+    "id": "pop5"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/sm5/logo.png", 
+    "symbol": "https://images.pokemontcg.io/sm5/symbol.png", 
+    "id": "sm5"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/xy10/logo.png", 
+    "symbol": "https://images.pokemontcg.io/xy10/symbol.png", 
+    "id": "xy10"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/sm8/logo.png", 
+    "symbol": "https://images.pokemontcg.io/sm8/symbol.png", 
+    "id": "sm8"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/hgss2/logo.png", 
+    "symbol": "https://images.pokemontcg.io/hgss2/symbol.png", 
+    "id": "hgss2"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/dpp/logo.png", 
+    "symbol": "https://images.pokemontcg.io/dpp/symbol.png", 
+    "id": "dpp"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/swsh1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/swsh1/symbol.png", 
+    "id": "swsh1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/basep/logo.png", 
+    "symbol": "https://images.pokemontcg.io/basep/symbol.png", 
+    "id": "basep"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/swsh4/logo.png", 
+    "symbol": "https://images.pokemontcg.io/swsh4/symbol.png", 
+    "id": "swsh4"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/xy1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/xy1/symbol.png", 
+    "id": "xy1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/pop1/logo.png", 
+    "symbol": "https://images.pokemontcg.io/pop1/symbol.png", 
+    "id": "pop1"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/bw8/logo.png", 
+    "symbol": "https://images.pokemontcg.io/bw8/symbol.png", 
+    "id": "bw8"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/base6/logo.png", 
+    "symbol": "https://images.pokemontcg.io/base6/symbol.png", 
+    "id": "base6"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/pop9/logo.png", 
+    "symbol": "https://images.pokemontcg.io/pop9/symbol.png", 
+    "id": "pop9"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/pop4/logo.png", 
+    "symbol": "https://images.pokemontcg.io/pop4/symbol.png", 
+    "id": "pop4"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/neo4/logo.png", 
+    "symbol": "https://images.pokemontcg.io/neo4/symbol.png", 
+    "id": "neo4"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/neo3/logo.png", 
+    "symbol": "https://images.pokemontcg.io/neo3/symbol.png", 
+    "id": "neo3"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/pl4/logo.png", 
+    "symbol": "https://images.pokemontcg.io/pl4/symbol.png", 
+    "id": "pl4"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/sm75/logo.png", 
+    "symbol": "https://images.pokemontcg.io/sm75/symbol.png", 
+    "id": "sm75"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/ex10/logo.png", 
+    "symbol": "https://images.pokemontcg.io/ex10/symbol.png", 
+    "id": "ex10"
+  }, 
+  {
+    "logo": "https://images.pokemontcg.io/bw6/logo.png", 
+    "symbol": "https://images.pokemontcg.io/bw6/symbol.png", 
+    "id": "bw6"
+  }
+]

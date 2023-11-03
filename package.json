@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.0.0",
-    "pokemontcgsdk": "^2.0.0",
+    "pokemon-tcg-sdk": "github:PokemonTCG/pokemon-tcg-sdk-js",
     "web3": "^4.2.1"
   }
 }

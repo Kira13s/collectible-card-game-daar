@@ -21,26 +21,8 @@
       <!-- Menu qui est responsive -->
       <img src="./public/menu_hamburger.png" alt="menu hamburger" class="menu-hamburger"></img>
     </nav>
-    <!-- recherche classique avec bouton -->
-    <div class="recherche">
-      <form id="search-form">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Rechercher par type..."
-        />
-        <button type="submit">Rechercher</button>
-      </form>
-      <button id="cancelSearchButton" style="display: none;">Annuler la recherche</button>
-    </div>
-    <div id="content" class="card-container"></div>
+    <div id="content" class="collection"></div>
     <!-- Les cartes sont affichées ici -->
-    <div class="boutonPage">
-      <button id="showImageButton">Afficher 10 cartes supplémentaires</button>
-    </div>
-    <div id="search-results" class="card-container-recherche">
-      <!-- Les résultats de la recherche seront affichés ici -->
-    </div>
     <div id="root"></div>
 
     
@@ -51,146 +33,64 @@
   let currentCardIndex = 0;
   const cardsPerPage = 10;
   let cardData = [];
-  let searchResultsVisible = false; 
 
   menuHamburger.addEventListener('click', () => {
     navLinks.classList.toggle('mobile-menu');
   });
 
-  /* gestionnaire pour l'annulation de recherche */
-  const cancelSearchButton = document.getElementById('cancelSearchButton');
-
-  cancelSearchButton.addEventListener('click', () => {
-    const searchResults = document.getElementById('search-results');
-    const content = document.getElementById('content');
-
-    // Réinitialisez l'affichage en cachant les résultats de recherche et en réaffichant le contenu principal
-    searchResults.style.display = 'none';
-    content.style.display = 'block';
-    cancelSearchButton.style.display = 'none';
-  });
-
-  let cards = [] // Stocker les données des cartes chargées depuis le fichier ToutesCartes.json
-
-  
-  fetch('ToutesCartes.json')
-    .then(response => response.json())
-    .then(data => {
-      cards = data;
-
-      
-      document
-        .getElementById('search-form')
-        .addEventListener('submit', function (e) {
-          e.preventDefault(); // Empêche la soumission du formulaire par défaut
-
-          const searchInput = document.getElementById('search-input').value; 
-
-          const searchResults = document.getElementById('search-results');
-          const content = document.getElementById('content');
-
-          // Réalisez la recherche en filtrant les cartes par type
-          const filteredCards = cards.filter(card => {
-            return card.types.includes(searchInput);
+// Fonction pour charger les données depuis un fichier JSON
+function loadCardData() {
+        fetch('Base.json')
+          .then(response => response.json())
+          .then(data => {
+            // Assurez-vous que le fichier JSON contient un tableau d'objets représentant les cartes Pokémon
+            if (Array.isArray(data)) {
+              cardData = data;
+              // Afficher les premières cartes
+              displayItems(0, cardsPerPage);
+            } else {
+              console.error('Le fichier JSON ne contient pas de tableau d\'objets.');
+            }
+          })
+          .catch(error => {
+            console.error('Erreur de chargement des données :', error);
           });
-
-          // Affichez les résultats de la recherche
-          displaySearchResults(filteredCards, searchResults);
-
-          cancelSearchButton.style.display = 'block';
-          // Masquez le contenu précédent
-          content.style.display = 'none';
-          searchResultsVisible = true;
-        });
-    })
-    .catch(error => {
-      console.error('Erreur de chargement des données :', error);
-    });
-
-  // Fonction pour afficher les résultats de la recherche
-  function displaySearchResults(results, element) {
-    element.innerHTML = ''; // Efface les résultats précédents
-
-    if (results.length === 0) {
-      element.innerHTML = '<p>Aucun résultat trouvé.</p>';
-      return;
-    }
-
-    results.forEach(card => {
-      const cardDiv = document.createElement('div');
-      cardDiv.className = 'img-container-recherche';
-
-      const cardImage = document.createElement('img');
-      cardImage.src = card.images.small;
-
-      cardDiv.appendChild(cardImage);
-      element.appendChild(cardDiv);
-    });
-  }
-
-  function loadCardData() {
-    fetch('ToutesCartes.json')
-      .then(response => response.json())
-      .then(data => {
-        if (Array.isArray(data)) {
-          cardData = data;
-        
-          displayItems(0, cardsPerPage);
-        } else {
-          console.error('Le fichier JSON ne contient pas de tableau d\'objets.');
-        }
-      })
-      .catch(error => {
-        console.error('Erreur de chargement des données :', error);
-      });
-  }
-
-  // Fonction pour afficher un sous-ensemble de cartes
-  function displayItems(startIndex, endIndex) {
-    const content = document.getElementById('content');
-    content.innerHTML = '';
-
-    for (let i = startIndex; i < endIndex; i++) {
-      if (i >= cardData.length) {
-        break;
       }
 
-      const imgContainer = document.createElement('div');
-      imgContainer.className = 'img-container';
+      // Fonction pour afficher un sous-ensemble de cartes
+      function displayItems(startIndex, endIndex) {
+        const content = document.getElementById('content');
+        content.innerHTML = '';
 
-      const imgElement = document.createElement('img');
-      imgElement.src = cardData[i].images.small;
-      imgContainer.appendChild(imgElement);
+        for (let i = startIndex; i < endIndex; i++) {
+          if (i >= cardData.length) {
+            break;
+          }
 
-      content.appendChild(imgContainer);
-    }
+          const cardContainer = document.createElement('div');
+          cardContainer.className = 'img-collection';
 
-    if (searchResultsVisible) {
-      const searchResults = document.getElementById('search-results');
-      searchResults.style.display = 'none';
-      searchResultsVisible = false;
-    }
-  }
+          const symbolImg = document.createElement('img');
+          symbolImg.className = 'symbolP';
+          symbolImg.src = cardData[i].images.symbol;
 
-  const showImageButton = document.getElementById('showImageButton');
+          const logoImg = document.createElement('img');
+          logoImg.className = 'logoP';
+          logoImg.src = cardData[i].images.logo;
 
-  showImageButton.addEventListener('click', () => {
-    const newStartIndex = currentCardIndex + cardsPerPage;
-    const newEndIndex = newStartIndex + cardsPerPage;
-    displayItems(newStartIndex, newEndIndex);
-    currentCardIndex = newEndIndex;
+          const name = document.createElement('p');
+          name.className = 'name';
+          name.textContent = cardData[i].name;
 
-    if (searchResultsVisible) {
-      
-      const searchResults = document.getElementById('search-results');
-      searchResults.style.display = 'none';
-      searchResultsVisible = false;
-    }
-  });
+          cardContainer.appendChild(symbolImg);
+          cardContainer.appendChild(logoImg);
+          cardContainer.appendChild(name);
 
-  // Appel de la fonction pour charger les données au démarrage
-  loadCardData();
+          content.appendChild(cardContainer);
+        }
+      }
 
+      loadCardData()
     </script>
   </body>
 </html>
