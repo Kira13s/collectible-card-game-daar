@@ -1,4 +1,6 @@
 import { ethers } from 'ethers';
+import * as fs from 'fs';
+import * as readline from 'readline';
 
 const mainJSON = require("../../contracts/artifacts/src/Admin.sol/Admin.json");
 const mainABI = mainJSON.abi;
@@ -31,7 +33,25 @@ export async function loadCollection() {
             const cardCount = obj.total;
             const transaction = await contract.createCollection(name, cardCount);
             await transaction.wait();
-            console.log(`Name: ${name}, ID: ${cardCount}`);
+            
+            const fileStream = fs.createReadStream(data + name + 'CardsId.txt');
+            const rl = readline.createInterface({
+                input: fileStream,
+                crlfDelay: Infinity // Permet de gérer les fins de ligne universelles (CR, LF, CRLF)
+            });
+
+            // Utilisez l'interface readline pour lire le fichier ligne par ligne
+            rl.on('line', (line: string) => {
+                fetch('${data}/${name}/${line}.json')
+                .then(response => response.json())
+                .then(async card => {
+                  const transaction = await contract.AddCardToCollection(name, card.id, '${data}/${name}/${line}.json');
+                  await transaction.wait();
+                })
+            });
+
+            // Événement déclenché lorsque la lecture du fichier est terminée
+            rl.on('close', () => { });
             
             const cardsJson = data + "/" + name;
             i++;
