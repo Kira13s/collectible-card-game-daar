@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import styles from './styles.module.css'
 import * as ethereum from '@/lib/ethereum'
 import * as main from '@/lib/main'
+import { loadCollection } from './InitCollection'
 
 type Canceler = () => void
 const useAffect = (
@@ -53,6 +54,7 @@ const useNft = () => {
 //utiliser le nft et le wallet
 export const App = () => {
   const wallet = useWallet();
+  //loadCollection();
   //const nft = useNft()
   return <div className={styles.body}></div>
 }
