@@ -1,49 +1,78 @@
 const express = require('express');
+const cors = require('cors');
+const pokemon = require('pokemontcgsdk');
+
+pokemon.configure({apiKey: '2edef687-c149-4a15-a7a3-a181e45bd2b5'})
+
 const app = express();
 const port = 3000;
 
-const Web3 = require('web3');
-const web3 = new Web3('http://localhost:8545'); // URL
+const setsID = ['base1', 'base2', 'base3'];
 
-// Adress du contrat deployé
-const mainContractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+// Configuration CORS pour autoriser les requêtes depuis https://api.pokemontcg.io/v2/sets
+app.use(cors({
+  origin: 'https://api.pokemontcg.io/v2/', // Remplacez par l'origine de votre application
+}));
 
-const mainArtifact = require('./contracts/deployments/localhost/Main.json');
-const abi = mainArtifact.abi;
-
-// ABI du contrat
-const mainContractABI = [abi];
-
-// creation d'instance du contrat avec Web3
-const mainContract = new web3.eth.Contract(mainContractABI, mainContractAddress);
-
-//trouver un moyen d'avoir directement accès au nft depuis le main deployé
-//pour pouvoir recup les infos nécessaires
-app.get('/totalSupply', async (req, res) => {
-  try {
-    //appeler le totalsupply du NFT, pas du main
-    const totalSupply = await mainContract.methods.totalSupply().call();
-    res.json({ totalSupply });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
+app.get('/api/sets/:userId', (req, res) => {
+  const userId = req.params.userId;
+  pokemon.set.find(userId)
+  .then(set => {
+    res.json({set});
+  })
 });
-//NB : pas sur que le totalSupply soit utile ici
 
-//idem mais avec l'id
-app.get('/nft/:tokenId', async (req, res) => {
-  try {
-    const tokenId = req.params.tokenId;
+app.get('/api/sets', async (req, res) => {
+  const data = [];
+  
+  // Use Promise.all to wait for all promises to complete
+  await Promise.all(setsID.map(async setId => {
+    try {
+      const set = await pokemon.set.find(setId);
+      data.push(set);
+    } catch (error) {
+      console.error('Error fetching set:', error);
+    }
+  }));
 
-    //fonction qui pourrait retourner les infos du NFT en fct de son ID (son num et image)
-    const nftInfo = await nftContract.methods.getNFTInfo(tokenId).call();
+  res.json({ resultat });
+  
+});
 
-    res.json({ nftInfo });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
+app.get('/api/cards', async (req, res) => {
+  const data = [];
+  
+  // Use Promise.all to wait for all promises to complete
+  await Promise.all(setsID.map(async setId => {
+    try {
+      const cards = await pokemon.card.where({q: 'set.id:' + setId});
+      data.push(cards.data);
+    } catch (error) {
+      console.error('Error fetching set:', error);
+    }
+  }));
+
+  res.json({ data });
+  
+});
+
+app.get('/api/sets/cards/:userId', async (req, res) => {
+  const userId = req.params.userId;
+  
+  pokemon.card.where({ q: 'set.id:' + userId })
+  .then(result => {
+      res.json(result);
+  })
+
+  
+});
+
+app.get('/api/cards/:userId', (req, res) => {
+  const userId = req.params.userId;
+  pokemon.card.find(userId)
+  .then(card => {
+    res.json({card});
+  })
 });
 
 app.listen(port, () => {

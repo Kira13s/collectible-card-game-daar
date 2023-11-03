@@ -29,16 +29,13 @@ contract Collection {
         _;
     }
 
-  /*  création avec une URI
-	function addCard(string memory _name, string memory _URI) external onlyAdmin{ 
-	*/
 
   /// Ajoute une carte à la collection
   /// @param _cardNumber id de la carte
-  /// @param _img image de la carte
-	function addCard(string memory _cardNumber, string memory _img) external onlyAdmin{
+  /// @param _uri uri de la carte
+	function addCard(string memory _cardNumber, string memory _uri) external onlyAdmin{
 		require(size < cardCount, "Collection is full.");
-		NFT newCard = new NFT(_cardNumber, _img, admin);
+		NFT newCard = new NFT(_cardNumber, _uri, admin);
 		cards[_cardNumber] = newCard;
 		size++;
 	}

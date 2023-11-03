@@ -24,6 +24,12 @@ contract Main is Admin{
 	function getCollection(string memory _collectionName) internal view returns (Collection) {
 		return collectionManager.getCollection(_collectionName);
 	}
+	
+	function getUser(address _userAddress) internal view returns (User) {
+		User user = users[_userAddress];
+		require(address(user) != address(0), "User does not exist.");
+        return user;
+	}
 
 	/**
 	 * Crée une collection
@@ -34,17 +40,14 @@ contract Main is Admin{
 		collectionManager.createCollection(_name, _cardCount);
 	}
 
-	/*  création avec une URI
-	function AddCardToCollection(string memory _collectionName, string memory _nameCard, string memory _URI)
-	external onlyAdmin{ 
-	*/
+	
 	/// Ajoute une carte à une collection
 	/// @param _collectionName Collection sélectionné pour l'ajout 
 	/// @param _cardNumber id de la carte 
-	/// @param _img image de la carte
+	/// @param _uri uri de la carte
 	function AddCardToCollection(string memory _collectionName, 
-			string memory _cardNumber, string memory _img) external onlyOwner {
-		collectionManager.AddCardToCollection(_collectionName, _cardNumber, _img);
+			string memory _cardNumber, string memory _uri) external onlyOwner {
+		collectionManager.AddCardToCollection(_collectionName, _cardNumber, _uri);
 	}
 
 	/// Mint et assigne une carte à un utilisateur
@@ -55,7 +58,8 @@ contract Main is Admin{
 		Collection collection = getCollection(_nameCollection);
 		NFT card = collection.getCard(_cardNumber);
 		card.mintTo(_to);
-		users[_to].addCardtoUser(card);
+		User user = getUser(_to);
+		user.addCardtoUser(card);
 	}
 
 
@@ -85,6 +89,18 @@ contract Main is Admin{
 	/// @param _boosterName Nom du booster
 	function buyBooster(address _to, string memory _boosterName)  external payable{
 		boosterManager.buyBooster(_to, _boosterName);
+	}
+
+	
+	function getCardsUserUri(address userAddress) external view returns(string[] memory){
+		User user = getUser(userAddress);
+		NFT[] memory cards = user.getCards();
+		string[] memory uris = new string[](cards.length);
+		for (uint i = 0; i < cards.length; i++) {
+            // Effectuez une opération sur chaque élément du tableau
+            uris[i] = cards[i].getURI();
+        }
+        return uris;
 	}
 
 	

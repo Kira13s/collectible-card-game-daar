@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import styles from './styles.module.css'
 import * as ethereum from '@/lib/ethereum'
-//import * as main from '@/lib/main'
+import * as main from '@/lib/main'
+import { loadCollection } from './InitCollection'
 
 type Canceler = () => void
 const useAffect = (
@@ -22,7 +23,7 @@ const useAffect = (
   }, dependencies)
 }
 
-/*const useWallet = () => {
+const useWallet = () => {
   const [details, setDetails] = useState<ethereum.Details>()
   const [contract, setContract] = useState<main.Main>()
   useAffect(async () => {
@@ -37,7 +38,7 @@ const useAffect = (
     if (!details || !contract) return
     return { details, contract }
   }, [details, contract])
-}*/
+}
 
 const useNft = () => {
   const [nftData, setNftData] = useState(null)
@@ -52,7 +53,8 @@ const useNft = () => {
 
 //utiliser le nft et le wallet
 export const App = () => {
-  //const wallet = useWallet();
-  const nft = useNft()
+  const wallet = useWallet();
+  //loadCollection();
+  //const nft = useNft()
   return <div className={styles.body}></div>
 }
