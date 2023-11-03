@@ -1,5 +1,5 @@
 .DS_Store
-contracts/node_modules
+node_modules
 /dist
 
 

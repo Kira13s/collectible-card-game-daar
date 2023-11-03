@@ -1,4 +1,4 @@
-/*import { ethers } from 'ethers'
+import { ethers } from 'ethers'
 import * as ethereum from './ethereum'
 
 import { contracts } from '@/contracts.json' //ces 3 imports ne passent pas pour l'instant
@@ -24,9 +24,9 @@ export const init = async (details: ethereum.Details) => {
   return contract_ as any as Main
 }
 
-export const myShip = () => contracts.Main.address*/
+export const myShip = () => contracts.Main.address
 
-import Web3 from 'web3'
+/*import Web3 from 'web3'
 
 // Déclaration pour contourner l'erreur de type
 declare global {
@@ -65,4 +65,4 @@ if (window.ethereum) {
     .catch((error: Error) => {
       console.error(error)
     })
-}
+}*/
