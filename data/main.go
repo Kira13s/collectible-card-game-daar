@@ -51,7 +51,7 @@ func main() {
 		    request.Query("set.name:" + set.Name),
 	    )
 	    for _, card := range cards {
-	        writeFileJson(set.Name + "/" + card.ID + ".json", cards)
+	        writeFileJson(set.Name + "/" + card.ID + ".json", card)
 	    }
 	    
 	    
