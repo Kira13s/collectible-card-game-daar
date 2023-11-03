@@ -12,18 +12,16 @@ contract NFT is ERC721 {
 
     uint private _nextTokenId = 1; // Pour générer des IDs uniques pour chaque copie de carte
     Admin private  admin;
-    string public cardNumber;
-    string public img;
-    /*Actuellement, on stocke les champs des métadonnée. Mais quand l'API sera créé,
-    il faudra stocker l'uri de notre API: string public URI */
+    string public cardNumber; 
+    string public uri;
 
     address[] public  owners;
     mapping(address => uint256) private indexesOwner;
 
     // PKMN pour pokémon
-    constructor(string memory _cadrdNumber, string memory _img, Admin _admin) ERC721("NFT", "PKMN") {
-        cardNumber = _cadrdNumber;
-        img = _img;
+    constructor(string memory _cardNumber, string memory _uri, Admin _admin) ERC721("NFT", "PKMN") {
+        cardNumber = _cardNumber;
+        uri = _uri;
         admin = _admin;
     }
 
@@ -75,13 +73,10 @@ contract NFT is ERC721 {
         return _nextTokenId - 1;
     }
 
-    /* Fonction a implémenté quand on aure une API pour le frontend
-    function baseTokenURI() virtual public pure returns (string memory){
-        return URL de notre API
+    
+    /// @notice Retourne l'uri des métadonnées de la carte
+    function getURI() virtual public view returns (string memory){
+        return uri;
     }
-
-    function tokenURI(uint256 _tokenId) override public pure returns (string memory) {
-        return string(abi.encodePacked(baseTokenURI(), Strings.toString(_tokenId)));
-    }*/
 
 }

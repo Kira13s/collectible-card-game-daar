@@ -15,6 +15,9 @@ contract User{
         name = _name;
     }
 
+    function getCards() external view returns (NFT[] memory) {
+        return cards;
+    }
     
     function contains(NFT card) internal  view returns(bool) {
         return indexes[card] != 0;
