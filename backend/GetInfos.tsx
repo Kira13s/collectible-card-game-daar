@@ -20,20 +20,22 @@ export async function getCardUser() : Promise<string[]>{
 }
 
 export async function getSetsOwner(nameSet) {
-  return new Promise((resolve) => {  
+  return new Promise(async (resolve) => {  
     if (window.ethereum) {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const contract = new ethers.Contract(mainAddress, mainABI, provider);
+        const contract = new ethers.Contract(mainAddress, mainABI, provider)
 
-        const nbCard = await contract.getCardCountCollection(nameSet);
-        await nbCard.wait();
+        const cardsId = await contract.getCardIdCollection(nameSet);
+        await cardsId.wait();
 
         var infos= {}
-        for (let index = 0; index < nbCard; index++) {
-          const element = array[index];
-          
-        }
+        cardsId.forEach(async cardId => {
+          const owners = await contract.getUsersCardCollection(nameSet, cardId);
+          await owners.wait();
+          infos[cardId] = owners; 
+        });
     
+        resolve(infos);
         
     }
   })
