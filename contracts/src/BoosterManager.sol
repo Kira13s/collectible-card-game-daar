@@ -29,6 +29,12 @@ contract BoosterManager {
         return booster;
     }
 
+	/// Retourne l'addresse d'un booster spécifique
+	/// @param _boosterName booster dont on veut l'addresse
+	function getBoosterAddress(string memory _boosterName) public view onlyAdmin returns (address) {
+		Booster booster = getBooster(_boosterName);
+		return address(booster);		
+	}
 	/**
      * @dev See {Main- createBooster}.
      */
@@ -39,7 +45,6 @@ contract BoosterManager {
 			boosters[_name] = booster;
 	}
 
-	/*Ajout création avec une uri */
 	/**
 	 * Ajoute une carte dans un booster
 	 * @param _boosterName nom du booster où va avoir lieu l'ajout
@@ -59,4 +64,5 @@ contract BoosterManager {
 		require(msg.value >= booster.cost(), "insufficient funds");
 		booster.mintTo(_to);
 	}
+
 }

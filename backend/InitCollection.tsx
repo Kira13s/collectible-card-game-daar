@@ -2,10 +2,9 @@ import { ethers } from 'ethers';
 import * as fs from 'fs';
 import * as readline from 'readline';
 
-import {mainAddress, mainABI, dataPath, setsName} from "./constants.js"
+import {mainAddress, mainABI, dataPath} from "./constants.js"
 
 export async function loadCollection() {
-  console.log("test");
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
 

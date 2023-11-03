@@ -73,14 +73,6 @@ contract NFT is ERC721 {
         return _nextTokenId - 1;
     }
 
-    
-    /// @notice Retourne l'uri des métadonnées de la carte
-    function getURI() virtual public view returns (string memory){
-        return uri;
-    }
 
-    function getOwners() public view returns (address[] memory) {
-        return owners;
-    }
 
 }

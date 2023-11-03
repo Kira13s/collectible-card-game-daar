@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 /// @notice Grant the admin exclusive access to specific functions
 contract Admin is Ownable{
 
-    constructor() Ownable(msg.sender) {}
+    constructor(address initailOwner) Ownable(initailOwner) {}
 
     /// @dev Access modifier for admin-only functionality
     modifier onlyAdmin() {

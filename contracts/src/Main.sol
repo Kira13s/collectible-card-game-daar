@@ -17,7 +17,7 @@ contract Main is Admin{
 	BoosterManager private boosterManager;
 	mapping(address => User) private users;
 
-	constructor() {
+	constructor(address initialOwner) Admin(initialOwner) {
 		collectionManager = new CollectionManager(this);
 	}
 
@@ -101,32 +101,12 @@ contract Main is Admin{
 		for (uint i = 0; i < cards.length; i++) {
             NFT card = cards[i];
 			for(uint j = 0; j < card.balanceOf(userAddress); j++) {
-				uris[index] = cards[index].getURI();
+				uris[index] = cards[index].uri();
 				index++;
 			}
             
         }
         return uris;
 	}
-
-	/// Retourne les addresses des propriétaires de la carte dans une collection spécifique
-	/// @param _collectionName nom de la collection où se trouve la carte
-	/// @param _cardNumber id de la carte dont on veut les owners
-    function getUsersCardCollection(string memory _collectionName, string memory _cardNumber) 
-        external view returns (address[] memory) {
-        	return collectionManager.getUsersCard(_collectionName, _cardNumber);
-    }
-
-	/// Retourne le nombre de carte dans une collection spécifique
-	/// @param _collectionName nom de la collection où se trouve la carte
-	function getCardCountCollection(string memory _collectionName) external view returns(uint) {
-		return collectionManager.getCardCountCollection(_collectionName);
-
-	}
-
-	function getCardIdCollection(string memory_collectionName) external view returns (string[] memory){
-		return collectionManager.getCollection(_collectionName);
-	}
-
 	
 }

@@ -51,10 +51,4 @@ contract CollectionManager {
 		collection.addCard(_cardNumber, _img);
 	}
 
-    /// @dev See {Main- getUsersCardCollection}.
-    function getUsersCard(string memory _collectionName, string memory _cardNumber) 
-        external view returns (address[] memory) {
-            Collection collection = getCollection(_collectionName);
-            return collection.getUsersCard(_cardNumber);
-    }
 }

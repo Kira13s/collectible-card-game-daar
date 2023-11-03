@@ -14,7 +14,10 @@ contract Collection {
   // nombre de cartes ajouté à la collection
 	uint public size;
 	// Mapping from id of the card to the card
-	mapping(string => NFT) private cards;
+	mapping(string => NFT) private cardid;
+  NFT[] public cards;
+  address[] public cardsAddress;
+
 
   constructor(string memory _name, uint _cardCount, Admin _admin) {
     name = _name;
@@ -36,31 +39,24 @@ contract Collection {
 	function addCard(string memory _cardNumber, string memory _uri) external onlyAdmin{
 		require(size < cardCount, "Collection is full.");
 		NFT newCard = new NFT(_cardNumber, _uri, admin);
-		cards[_cardNumber] = newCard;
+		cardid[_cardNumber] = newCard;
 		size++;
 	}
 
   /// Retourne une carte de la collection
   /// @param _cardNumber id de la carte à retourné
   function getCard(string memory _cardNumber) public view returns (NFT) {
-		NFT card = cards[_cardNumber];
+		NFT card = cardid[_cardNumber];
 		require(address(card) != address(0), "Card does not exist.");
 		return card;
 	}
 
-  /// Retourne les utilisateurs d'une carte
-  /// @param _cardNumber id de la carte dont on veut les utilisateurs
-  function getUsersCard(string memory _cardNumber) external view returns (address[] memory) {
+  /// Retourne l'addresse d'un contrat nft
+  /// @param _cardNumber id de la carte dont on veut l'addresse
+  function getCardAddressID(string memory _cardNumber) external view returns (address) {
         NFT card = getCard(_cardNumber);
-        return card.getOwners();
+        return address(card);
     }
-
-    /// @return le nombre de carte de la collection
-    function getCardCount() external view returns(uint) {
-      return cardCount;
-    }
-
-    function getCards(type name) {
-      
-    }
+    
+  
 }
