@@ -4,9 +4,10 @@ const mainJSON = require("../../contracts/artifacts/src/Admin.sol/Admin.json");
 const mainABI = mainJSON.abi;
 const mainAddress = '00x5fbdb2315678afecb367f032d93f642f64180aa3';
 
-const sets = "../../data/sets.json";
+const data = "../../data/";
 
 export async function loadCollection() {
+  console.log("test");
     // Vérifie si MetaMask est installé et connecté
     if (window.ethereum) {
       // Crée une instance de Web3Provider à partir de window.ethereum
@@ -18,7 +19,7 @@ export async function loadCollection() {
       });
 
       const contract = new ethers.Contract(mainAddress, mainABI, provider);
-    
+      const sets = data + "sets.json";
       fetch(sets)
       .then(response => response.json())
       .then(async data => {
@@ -32,6 +33,7 @@ export async function loadCollection() {
             await transaction.wait();
             console.log(`Name: ${name}, ID: ${cardCount}`);
             
+            const cardsJson = data + "/" + name;
             i++;
             if(i == 3){
                 break;
@@ -43,8 +45,6 @@ export async function loadCollection() {
       });
       //const signer = provider.getSigner(); // Le compte Ethereum de l'utilisateur
       //const contractWithSigner = contract.connect(signer);
-
-  
 
       
     } else {
