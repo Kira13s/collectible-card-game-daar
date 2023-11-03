@@ -46,10 +46,14 @@ func main() {
 	i := 0
 
 	for _, set := range sets {
+	    err := os.Mkdir(set.Name, os.ModePerm)
 		cards, err := c.GetCards(
 		    request.Query("set.name:" + set.Name),
 	    )
-	    writeFileJson(set.Name + "Cards.json", cards)
+	    for _, card := range cards {
+	        writeFileJson(set.Name + "/" + card.ID + ".json", cards)
+	    }
+	    
 	    
 	    if err != nil {
 		    log.Fatal(err)

@@ -7,8 +7,6 @@ const mainAddress = '00x5fbdb2315678afecb367f032d93f642f64180aa3';
 const sets = "../../data/sets.json";
 
 export async function loadCollection() {
-    console.log("init");
-
     // Vérifie si MetaMask est installé et connecté
     if (window.ethereum) {
       // Crée une instance de Web3Provider à partir de window.ethereum

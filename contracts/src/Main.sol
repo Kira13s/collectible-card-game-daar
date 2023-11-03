@@ -87,5 +87,11 @@ contract Main is Admin{
 		boosterManager.buyBooster(_to, _boosterName);
 	}
 
+	/*
+	function getCardsUser(address userAddress) external view returns(NFT[] memory){
+		//User user = users[userAddress];
+        return user.cards;
+	}*/
+
 	
 }
