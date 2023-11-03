@@ -21,8 +21,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "$/*": ["../typechain/*"]
+      "$/*": ["../typechain/*"],
+      "backend/*" : ["../backend/*"]
     }
   },
-  "include": ["./test", "./src"]
+  "include": ["./test", "./src", "../backend/constants.ts", "../backend/InitCollection.tsx"]
 }

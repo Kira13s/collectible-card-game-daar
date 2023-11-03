@@ -54,4 +54,13 @@ contract Collection {
         NFT card = getCard(_cardNumber);
         return card.getOwners();
     }
+
+    /// @return le nombre de carte de la collection
+    function getCardCount() external view returns(uint) {
+      return cardCount;
+    }
+
+    function getCards(type name) {
+      
+    }
 }

@@ -2,7 +2,7 @@ import { ethers } from 'ethers';
 import * as fs from 'fs';
 import * as readline from 'readline';
 
-import {mainAddress, mainABI, dataPath} from "./constants.ts"
+import {mainAddress, mainABI, dataPath, setsName} from "./constants.js"
 
 export async function loadCollection() {
   console.log("test");
@@ -15,11 +15,11 @@ export async function loadCollection() {
       });
 
       const contract = new ethers.Contract(mainAddress, mainABI, provider);
+
       const sets = dataPath + "sets.json";
       fetch(sets)
       .then(response => response.json())
       .then(async data => {
-        let i = 0;
         if (data.length > 0) {
           for (const obj of data) {
             const name = obj.name;
@@ -44,11 +44,6 @@ export async function loadCollection() {
 
             rl.on('close', () => { });
             
-            const cardsJson = data + "/" + name;
-            i++;
-            if(i == 3){
-                break;
-             }
           }
         } else {
           console.log('Aucun objet JSON trouvé.');

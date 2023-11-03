@@ -114,8 +114,19 @@ contract Main is Admin{
 	/// @param _cardNumber id de la carte dont on veut les owners
     function getUsersCardCollection(string memory _collectionName, string memory _cardNumber) 
         external view returns (address[] memory) {
-            return collectionManager.getUsersCard(_collectionName, _cardNumber);
+        	return collectionManager.getUsersCard(_collectionName, _cardNumber);
     }
+
+	/// Retourne le nombre de carte dans une collection spécifique
+	/// @param _collectionName nom de la collection où se trouve la carte
+	function getCardCountCollection(string memory _collectionName) external view returns(uint) {
+		return collectionManager.getCardCountCollection(_collectionName);
+
+	}
+
+	function getCardIdCollection(string memory_collectionName) external view returns (string[] memory){
+		return collectionManager.getCollection(_collectionName);
+	}
 
 	
 }
