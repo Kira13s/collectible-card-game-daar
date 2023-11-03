@@ -79,4 +79,8 @@ contract NFT is ERC721 {
         return uri;
     }
 
+    function getOwners() public view returns (address[] memory) {
+        return owners;
+    }
+
 }

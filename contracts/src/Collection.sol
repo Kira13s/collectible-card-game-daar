@@ -47,4 +47,11 @@ contract Collection {
 		require(address(card) != address(0), "Card does not exist.");
 		return card;
 	}
+
+  /// Retourne les utilisateurs d'une carte
+  /// @param _cardNumber id de la carte dont on veut les utilisateurs
+  function getUsersCard(string memory _cardNumber) external view returns (address[] memory) {
+        NFT card = getCard(_cardNumber);
+        return card.getOwners();
+    }
 }

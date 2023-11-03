@@ -95,13 +95,27 @@ contract Main is Admin{
 	function getCardsUserUri(address userAddress) external view returns(string[] memory){
 		User user = getUser(userAddress);
 		NFT[] memory cards = user.getCards();
-		string[] memory uris = new string[](cards.length);
+		string[] memory uris;
+		uint index = 0;
+
 		for (uint i = 0; i < cards.length; i++) {
-            // Effectuez une opération sur chaque élément du tableau
-            uris[i] = cards[i].getURI();
+            NFT card = cards[i];
+			for(uint j = 0; j < card.balanceOf(userAddress); j++) {
+				uris[index] = cards[index].getURI();
+				index++;
+			}
+            
         }
         return uris;
 	}
+
+	/// Retourne les addresses des propriétaires de la carte dans une collection spécifique
+	/// @param _collectionName nom de la collection où se trouve la carte
+	/// @param _cardNumber id de la carte dont on veut les owners
+    function getUsersCardCollection(string memory _collectionName, string memory _cardNumber) 
+        external view returns (address[] memory) {
+            return collectionManager.getUsersCard(_collectionName, _cardNumber);
+    }
 
 	
 }

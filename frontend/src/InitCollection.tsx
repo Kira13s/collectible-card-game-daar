@@ -2,17 +2,11 @@ import { ethers } from 'ethers';
 import * as fs from 'fs';
 import * as readline from 'readline';
 
-const mainJSON = require("../../contracts/artifacts/src/Admin.sol/Admin.json");
-const mainABI = mainJSON.abi;
-const mainAddress = '00x5fbdb2315678afecb367f032d93f642f64180aa3';
-
-const data = "../../data/";
+import {mainAddress, mainABI, dataPath} from "./constants.ts"
 
 export async function loadCollection() {
   console.log("test");
-    // Vérifie si MetaMask est installé et connecté
     if (window.ethereum) {
-      // Crée une instance de Web3Provider à partir de window.ethereum
       const provider = new ethers.providers.Web3Provider(window.ethereum);
 
       // Récupère l'adresse du compte connecté
@@ -21,13 +15,12 @@ export async function loadCollection() {
       });
 
       const contract = new ethers.Contract(mainAddress, mainABI, provider);
-      const sets = data + "sets.json";
+      const sets = dataPath + "sets.json";
       fetch(sets)
       .then(response => response.json())
       .then(async data => {
         let i = 0;
         if (data.length > 0) {
-          // Parcours des objets JSON
           for (const obj of data) {
             const name = obj.name;
             const cardCount = obj.total;
@@ -37,10 +30,9 @@ export async function loadCollection() {
             const fileStream = fs.createReadStream(data + name + 'CardsId.txt');
             const rl = readline.createInterface({
                 input: fileStream,
-                crlfDelay: Infinity // Permet de gérer les fins de ligne universelles (CR, LF, CRLF)
+                crlfDelay: Infinity
             });
 
-            // Utilisez l'interface readline pour lire le fichier ligne par ligne
             rl.on('line', (line: string) => {
                 fetch('${data}/${name}/${line}.json')
                 .then(response => response.json())
@@ -50,7 +42,6 @@ export async function loadCollection() {
                 })
             });
 
-            // Événement déclenché lorsque la lecture du fichier est terminée
             rl.on('close', () => { });
             
             const cardsJson = data + "/" + name;
@@ -63,8 +54,6 @@ export async function loadCollection() {
           console.log('Aucun objet JSON trouvé.');
       }
       });
-      //const signer = provider.getSigner(); // Le compte Ethereum de l'utilisateur
-      //const contractWithSigner = contract.connect(signer);
 
       
     } else {
