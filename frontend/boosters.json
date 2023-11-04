@@ -1,0 +1,7 @@
+[
+  {
+    "name": "booster1",
+    "prix": "5",
+    "cards": ["../data/Base/base1-1.json", "../data/Base/base1-2.json"]
+  }
+]

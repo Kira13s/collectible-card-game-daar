@@ -168,7 +168,6 @@ header {
   left: 140px;
   top: 200px;
 }
-
 .collection {
   padding-top: 50px;
   display: flex;
@@ -245,6 +244,56 @@ header {
   display: block;
 }
 
+.bouton-booster {
+  margin: 20px;
+  text-align: center;
+  width: 200px;
+  height: 300px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Pour espacer les éléments verticalement */
+  position: relative;
+  z-index: 0;
+  border: none;
+  outline: none;
+  transition: all 0.5s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 3%;
+}
+
+.bouton-booster:hover {
+  transform: scale(1.15);
+}
+
+.img-booster {
+  max-height: auto;
+  position: relative;
+  width: 150px;
+  height: auto;
+  border-radius: 7%;
+}
+
+.nom-booster {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  width: 200px;
+  text-align: center;
+  position: absolute;
+  top: 240px;
+}
+
+.prix {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  width: 200px;
+  text-align: center;
+  position: absolute;
+  margin-top: 260px;
+}
 /* Côté responsive => surtout pour le menu */
 @media screen and (max-width: 900px) {
   .navbar {
