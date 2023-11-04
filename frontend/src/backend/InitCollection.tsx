@@ -1,21 +1,18 @@
-import { ethers } from 'ethers';
 import * as fs from 'fs';
 import * as readline from 'readline';
+import * as ethereum from '@/lib/ethereum'
+import * as main from '@/lib/main'
+import React from 'react';
 
-import {mainAddress, mainABI, dataPath} from "./constants.js"
+import {dataPath} from "./constants.js"
+import { useWallet } from '@/App.js';
 
 export async function loadCollection() {
-    if (window.ethereum) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const wallet = useWallet();
+  if (wallet != undefined) {
+    const mainContract = wallet?.contract;
 
-      // Récupère l'adresse du compte connecté
-      provider.getSigner().getAddress().then((address) => {
-        console.log(`Adresse du compte connecté : ${address}`);
-      });
-
-      const contract = new ethers.Contract(mainAddress, mainABI, provider);
-
-      const sets = dataPath + "sets.json";
+    const sets = dataPath + "sets.json";
       fetch(sets)
       .then(response => response.json())
       .then(async data => {
@@ -23,7 +20,7 @@ export async function loadCollection() {
           for (const obj of data) {
             const name = obj.name;
             const cardCount = obj.total;
-            const transaction = await contract.createCollection(name, cardCount);
+            const transaction = await mainContract.createCollection(name, cardCount);
             await transaction.wait();
             
             const fileStream = fs.createReadStream(data + name + 'CardsId.txt');
@@ -36,7 +33,7 @@ export async function loadCollection() {
                 fetch('${data}/${name}/${line}.json')
                 .then(response => response.json())
                 .then(async card => {
-                  const transaction = await contract.AddCardToCollection(name, card.id, '${data}/${name}/${line}.json');
+                  const transaction = await mainContract.AddCardToCollection(name, card.id, '${data}/${name}/${line}.json');
                   await transaction.wait();
                 })
             });
@@ -49,10 +46,6 @@ export async function loadCollection() {
       }
       });
 
-      
-    } else {
-      console.log('MetaMask n\'est pas installé ou non connecté.');
-    }
-
+  }
     
 }
