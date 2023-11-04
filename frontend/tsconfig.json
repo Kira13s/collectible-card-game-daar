@@ -22,7 +22,6 @@
     "paths": {
       "@/*": ["./src/*"],
       "$/*": ["../typechain/*"],
-      "backend/*" : ["../backend/*"]
     }
   },
   "include": ["./test", "./src", "../backend/constants.ts", "../backend/InitCollection.tsx"]
