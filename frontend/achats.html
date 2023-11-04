@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokémon TCG</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="src/backend/Booster.js"></script>
   </head>
   <body>
     <div class="nav-container">
@@ -29,12 +30,13 @@
     <div id="content" class="collection"></div>
     <div id="root"></div>
 
-    <script type="module" src="./src/backend/Booster.js">
+    <script>
       const menuHamburger = document.querySelector('.menu-hamburger')
       const navLinks = document.querySelector('.nav-links')
       let currentCardIndex = 0
       const cardsPerPage = 10
       let cardData = []
+      //helloWorld()
 
       menuHamburger.addEventListener('click', () => {
         navLinks.classList.toggle('mobile-menu')
