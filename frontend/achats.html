@@ -95,16 +95,8 @@
           imgBooster.className = 'img-booster'
           imgBooster.src = `./public/${name.textContent}.jpg`
 
-          function ajouterCarteAMesCartes(nouvelleCarte) {
-            //API
-          }
-
           payerButton.addEventListener('click', () => {
-            const nouvelleCarte = {
-              //
-            }
-
-            ajouterCarteAMesCartes(nouvelleCarte)
+            buyBooster('b1')
           })
           cardContainer.appendChild(imgBooster)
           cardContainer.appendChild(name)
