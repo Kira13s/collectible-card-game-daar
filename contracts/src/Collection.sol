@@ -15,7 +15,6 @@ contract Collection {
 	uint public size;
 	// Mapping from id of the card to the card
 	mapping(string => NFT) private cardid;
-  NFT[] public cards;
   address[] public cardsAddress;
 
 
@@ -40,6 +39,7 @@ contract Collection {
 		require(size < cardCount, "Collection is full.");
 		NFT newCard = new NFT(_cardNumber, _uri, admin);
 		cardid[_cardNumber] = newCard;
+    cardsAddress[size] = address(newCard);
 		size++;
 	}
 

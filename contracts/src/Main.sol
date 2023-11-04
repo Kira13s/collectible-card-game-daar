@@ -108,5 +108,13 @@ contract Main is Admin{
         }
         return uris;
 	}
+
+	function getAddressCollection(string memory _collectionName) external view returns (address) {
+        return collectionManager.getAddressCollection(_collectionName);
+    }
+
+	function getCostBooster(string memory _boosterName) external view returns (uint) {
+		return boosterManager.getCostBooster(_boosterName);
+	}
 	
 }

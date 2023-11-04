@@ -65,4 +65,8 @@ contract BoosterManager {
 		booster.mintTo(_to);
 	}
 
+	function getCostBooster(string memory _boosterName) external view returns (uint) {
+		return getBooster(_boosterName).cost();	
+	}
+
 }
