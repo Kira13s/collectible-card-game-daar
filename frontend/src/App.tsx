@@ -1,8 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import styles from './styles.module.css'
 import * as ethereum from '@/lib/ethereum'
 import * as main from '@/lib/main'
-import { loadCollection } from './backend/InitCollection';
 
 type Canceler = () => void
 const useAffect = (
@@ -38,10 +36,4 @@ export const useWallet = () => {
     if (!details || !contract) return
     return { details, contract }
   }, [details, contract])
-}
-
-
-export const App = () => {
-  loadCollection()
-  return <div className={styles.body}></div>
 }

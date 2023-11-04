@@ -40,13 +40,13 @@ exports.loadCollection = void 0;
 var fs = require("fs");
 var readline = require("readline");
 var constants_js_1 = require("./constants.js");
-var App_js_1 = require("@/App.js");
+var App_1 = require("../App");
 function loadCollection() {
     return __awaiter(this, void 0, void 0, function () {
         var wallet, mainContract_1, sets;
         var _this = this;
         return __generator(this, function (_a) {
-            wallet = (0, App_js_1.useWallet)();
+            wallet = (0, App_1.useWallet)();
             if (wallet != undefined) {
                 mainContract_1 = wallet === null || wallet === void 0 ? void 0 : wallet.contract;
                 sets = constants_js_1.dataPath + "sets.json";

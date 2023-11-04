@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as readline from 'readline';
 
 import {dataPath} from "./constants.js"
-import { useWallet } from '@/App.js';
+import { useWallet } from '@/App';
 
 export async function loadCollection() {
   const wallet = useWallet();

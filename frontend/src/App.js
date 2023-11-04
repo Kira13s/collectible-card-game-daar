@@ -36,13 +36,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.App = exports.useWallet = void 0;
-var jsx_runtime_1 = require("react/jsx-runtime");
+exports.useWallet = void 0;
 var react_1 = require("react");
-var styles_module_css_1 = require("./styles.module.css");
-var ethereum = require("@/lib/ethereum");
-var main = require("@/lib/main");
-var InitCollection_1 = require("./backend/InitCollection");
+var ethereum = require("./lib/ethereum");
+var main = require("./lib/main");
 var useAffect = function (asyncEffect, dependencies) {
     if (dependencies === void 0) { dependencies = []; }
     var cancelerRef = (0, react_1.useRef)();
@@ -88,8 +85,3 @@ var useWallet = function () {
     }, [details, contract]);
 };
 exports.useWallet = useWallet;
-var App = function () {
-    (0, InitCollection_1.loadCollection)();
-    return (0, jsx_runtime_1.jsx)("div", { className: styles_module_css_1.default.body });
-};
-exports.App = App;

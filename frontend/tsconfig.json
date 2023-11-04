@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
+    "module": "ESNext",
     "strict": true,
     "esModuleInterop": true,
     "outDir": "dist",
@@ -24,5 +24,5 @@
       "$/*": ["../typechain/*"],
     }
   },
-  "include": ["./test", "./src", "../backend/constants.ts", "../backend/InitCollection.tsx"]
+  "include": ["./test", "./src/**/*.tsx"]
 }

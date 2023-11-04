@@ -1,9 +1,9 @@
-import * as ethereum from '@/lib/ethereum'
+/*import * as ethereum from '@/lib/ethereum'
 import * as main from '@/lib/main'
 import { ethers } from 'ethers';
 
 import {mainAddress, mainABI} from "./constants.js"
-import { useWallet } from '@/App.js';
+import { useWallet } from '@/App.js';*/
 /*
 export async function mintNFT(collectionName : string, cardNumber : string) {
 	const wallet = useWallet();
