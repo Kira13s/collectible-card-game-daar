@@ -31,14 +31,14 @@ const agent = new https.Agent({ rejectUnauthorized: false })
 
 pokemon.configure({ apiKey: '123abc', agent })
 
-pokemon.set
-  .all({ q: 'series:Base' })
-  .then(sets => {
-    fs.writeFile('Base.json', JSON.stringify(sets, null, 2), err => {
+pokemon.card
+  .all({ q: `set.name:Base` })
+  .then(cards => {
+    fs.writeFile('BB.json', JSON.stringify(cards, null, 2), err => {
       if (err) {
         console.error("Erreur lors de l'écriture du fichier : ", err)
       } else {
-        console.log('Tous les sets ont été écrits dans allSets.json')
+        console.log('Tous les sets ont été écrits dans BB.json')
       }
     })
   })
