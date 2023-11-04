@@ -1,6 +1,6 @@
 import { ethers } from 'ethers'
 
-import { useWallet } from '../App.tsx'
+import { useWallet } from '@/App.tsx'
 
 export async function buyBooster(name: string): Promise<boolean> {
   return new Promise(async resolve => {

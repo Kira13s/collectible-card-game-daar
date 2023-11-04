@@ -1,8 +1,5 @@
 import * as fs from 'fs';
 import * as readline from 'readline';
-import * as ethereum from '@/lib/ethereum'
-import * as main from '@/lib/main'
-import React from 'react';
 
 import {dataPath} from "./constants.js"
 import { useWallet } from '@/App.js';
