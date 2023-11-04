@@ -6,6 +6,7 @@ import * as main from '../lib/main'
 
 //import { useWallet } from '@/App'
 
+
 export async function buyBooster(name: string): Promise<boolean> {
   return new Promise(async resolve => {
     try {
