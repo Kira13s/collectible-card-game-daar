@@ -10,17 +10,19 @@
   </head>
   <body>
     <!--Navigation Bar => logo à gauche et menu à droite -->
+    <div class="nav-container">
     <nav class="navbar">
       <img src="./public/pokemon.png" alt="Image Pokemon" class="logo" />
       <div class="nav-links">
         <ul>
-          <li><a href="index.html">COLLECTION</a></li>
-          <li><a href="#">MYPOKEMON</a></li>
+          <li><a href="index.html" class="stringPage">COLLECTIONS</a></li>
+          <li><a href="#" class="stringPage">MES CARTES</a></li>
         </ul>
       </div>
       <!-- Menu qui est responsive -->
       <img src="./public/menu_hamburger.png" alt="menu hamburger" class="menu-hamburger"></img>
-    </nav>
+    </nav></div>
+    <div class="nomSeries">BASE</div>
     <div id="content" class="collection"></div>
     <!-- Les cartes sont affichées ici -->
     <div id="root"></div>
@@ -57,38 +59,40 @@ function loadCardData() {
           });
       }
 
-      // Fonction pour afficher un sous-ensemble de cartes
       function displayItems(startIndex, endIndex) {
-        const content = document.getElementById('content');
-        content.innerHTML = '';
+    const content = document.getElementById('content');
+    content.innerHTML = '';
 
-        for (let i = startIndex; i < endIndex; i++) {
-          if (i >= cardData.length) {
-            break;
-          }
-
-          const cardContainer = document.createElement('div');
-          cardContainer.className = 'img-collection';
-
-          const symbolImg = document.createElement('img');
-          symbolImg.className = 'symbolP';
-          symbolImg.src = cardData[i].images.symbol;
-
-          const logoImg = document.createElement('img');
-          logoImg.className = 'logoP';
-          logoImg.src = cardData[i].images.logo;
-
-          const name = document.createElement('p');
-          name.className = 'name';
-          name.textContent = cardData[i].name;
-
-          cardContainer.appendChild(symbolImg);
-          cardContainer.appendChild(logoImg);
-          cardContainer.appendChild(name);
-
-          content.appendChild(cardContainer);
-        }
+    for (let i = startIndex; i < endIndex; i++) {
+      if (i >= cardData.length) {
+        break;
       }
+
+      const cardContainer = document.createElement('a'); // Utilisation de <a> pour le lien
+      console.log(cardData[i].name.replace(/\s+/g, '-').toLowerCase() + '.html');
+      cardContainer.href = cardData[i].name.replace(/\s+/g, '-').toLowerCase() + '.html';
+
+      cardContainer.className = 'img-collection';
+
+      const symbolImg = document.createElement('img');
+      symbolImg.className = 'symbolP';
+      symbolImg.src = cardData[i].images.symbol;
+
+      const logoImg = document.createElement('img');
+      logoImg.className = 'logoP';
+      logoImg.src = cardData[i].images.logo;
+
+      const name = document.createElement('p');
+      name.className = 'name';
+      name.textContent = cardData[i].name;
+
+      cardContainer.appendChild(symbolImg);
+      cardContainer.appendChild(logoImg);
+      cardContainer.appendChild(name);
+
+      content.appendChild(cardContainer);
+    }
+  }
 
       loadCardData()
     </script>
