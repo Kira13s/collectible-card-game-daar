@@ -29,7 +29,7 @@
     <div id="content" class="collection"></div>
     <div id="root"></div>
 
-    <script type="module">
+    <script type="module" src="./src/backend/Booster.tsx">
       const menuHamburger = document.querySelector('.menu-hamburger')
       const navLinks = document.querySelector('.nav-links')
       let currentCardIndex = 0
@@ -96,7 +96,7 @@
           imgBooster.src = `./public/${name.textContent}.jpg`
 
           payerButton.addEventListener('click', () => {
-            buyBooster('b1')
+            const boost = buyBooster('b1')
           })
           cardContainer.appendChild(imgBooster)
           cardContainer.appendChild(name)
