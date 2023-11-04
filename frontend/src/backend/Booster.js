@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.buyBooster = void 0;
 var ethers_1 = require("ethers");
-var App_tsx_1 = require("../App.tsx");
+var App_tsx_1 = require("@/App.tsx");
 function buyBooster(name) {
     return __awaiter(this, void 0, void 0, function () {
         var _this = this;
