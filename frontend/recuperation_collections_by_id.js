@@ -6,10 +6,8 @@ const agent = new https.Agent({ rejectUnauthorized: false })
 
 pokemon.configure({ apiKey: '123abc', agent })
 
-// Charger les données des sets à partir du fichier JSON
 const setsData = JSON.parse(fs.readFileSync('Base.json', 'utf8'))
 
-// Récupérer les sets à partir des IDs du fichier JSON
 const setIds = setsData.map(set => set.id)
 
 setIds.forEach(id => {

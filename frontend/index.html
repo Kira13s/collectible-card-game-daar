@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-     <!--affichage du titre + logo dans l'onglet de la page-->
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +11,6 @@
     loadBooster()</script>
   </head>
   <body>
-    <!--Navigation Bar => logo à gauche et menu à droite -->
     <div class="nav-container">
     <nav class="navbar">
       <img src="./public/pokemon.png" alt="Image Pokemon" class="logo" />
@@ -23,12 +21,10 @@
           <li><a href="mescartes.html" class="stringPage">MES CARTES</a></li>
         </ul>
       </div>
-      <!-- Menu qui est responsive -->
       <img src="./public/menu_hamburger.png" alt="menu hamburger" class="menu-hamburger"></img>
     </nav></div>
     <div class="nomSeries">BASE</div>
     <div id="content" class="collection"></div>
-    <!-- Les cartes sont affichées ici -->
     <div id="root"></div>
 
     
@@ -43,15 +39,13 @@
     navLinks.classList.toggle('mobile-menu');
   });
 
-// Fonction pour charger les données depuis un fichier JSON
 function loadCardData() {
         fetch('Base.json')
           .then(response => response.json())
           .then(data => {
-            // Assurez-vous que le fichier JSON contient un tableau d'objets représentant les cartes Pokémon
+           
             if (Array.isArray(data)) {
               cardData = data;
-              // Afficher les premières cartes
               displayItems(0, cardsPerPage);
             } else {
               console.error('Le fichier JSON ne contient pas de tableau d\'objets.');
@@ -71,7 +65,7 @@ function loadCardData() {
         break;
       }
 
-      const cardContainer = document.createElement('a'); // Utilisation de <a> pour le lien
+      const cardContainer = document.createElement('a');
       console.log(cardData[i].name.replace(/\s+/g, '-').toLowerCase() + '.html');
       cardContainer.href = cardData[i].name.replace(/\s+/g, '-').toLowerCase() + '.html';
 

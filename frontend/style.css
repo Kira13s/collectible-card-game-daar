@@ -60,7 +60,7 @@ header {
 
 .navbar .logo {
   order: 0;
-  width: 150px; /* Ajustez la largeur en fonction de la taille souhaitée */
+  width: 150px;
   left: 10px;
   top: 20px;
 }
@@ -130,7 +130,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Pour espacer les éléments verticalement */
+  justify-content: space-between;
   position: relative;
   z-index: 0;
   transition: all 0.5s;
@@ -253,7 +253,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Pour espacer les éléments verticalement */
+  justify-content: space-between;
   position: relative;
   z-index: 0;
   border: none;
@@ -293,36 +293,6 @@ header {
   text-align: center;
   position: absolute;
   margin-top: 260px;
-}
-
-/* Style de base pour un bouton */
-.payer-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: rgb(64, 63, 63); /* Couleur de fond */
-  color: #fff; /* Couleur du texte */
-  border: none; /* Supprime la bordure */
-  border-radius: 5px; /* Coins arrondis */
-  cursor: pointer; /* Curseur de la souris */
-  text-align: center; /* Centrer le texte */
-  text-decoration: none; /* Supprimer la décoration du texte (liens) */
-  font-size: 16px; /* Taille de la police */
-}
-
-/* Style lorsque le bouton est survolé (hover) */
-.payer-button:hover {
-  background-color: rgb(50, 50, 50); /* Couleur de fond au survol */
-}
-
-/* Style lorsque le bouton est actif (cliqué) */
-.payer-button:active {
-  background-color: rgb(5, 67, 5); /* Couleur de fond lorsque cliqué */
-}
-
-/* Style lorsque le bouton est désactivé */
-.payer-button:disabled {
-  background-color: #ccc; /* Couleur de fond désactivée */
-  cursor: not-allowed; /* Curseur "non autorisé" */
 }
 
 /* Côté responsive => surtout pour le menu */
