@@ -36,43 +36,7 @@
         navLinks.classList.toggle('mobile-menu');
         });
 
-        // Fonction pour charger les données depuis un fichier JSON
-        function loadCardData() {
-        fetch('base1.json')
-            .then(response => response.json())
-            .then(data => {
-            // Assurez-vous que le fichier JSON contient un tableau d'objets représentant les cartes Pokémon
-            if (Array.isArray(data)) {
-                cardData = data;
-                // Afficher toutes les cartes
-                displayItems();
-            } else {
-                console.error('Le fichier JSON ne contient pas de tableau d\'objets.');
-            }
-            })
-            .catch(error => {
-            console.error('Erreur de chargement des données :', error);
-            });
-        }
-
-        function displayItems() {
-            const content = document.getElementById('content');
-            content.innerHTML = '';
-
-            cardData.forEach((card, index) => {
-                const cardContainer = document.createElement('div'); // Utilisation de <a> pour le lien
-                cardContainer.className = 'img-container';
-
-                const cardImage = document.createElement('img');
-                cardImage.src = card.images.small;
-
-                cardContainer.appendChild(cardImage);
-                content.appendChild(cardContainer);
-            });
-        }
-
-        loadCardData();
-
     </script>
+    <script type="module" src="/src/main3.tsx"></script>
   </body>
 </html>

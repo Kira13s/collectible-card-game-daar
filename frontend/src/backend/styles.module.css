@@ -92,3 +92,9 @@ body {
   background-color: #ccc; /* Couleur de fond désactivée */
   cursor: not-allowed; /* Curseur "non autorisé" */
 }
+
+@media screen and (max-width: 900px) {
+  .bouton {
+    margin-left: 38%;
+  }
+}

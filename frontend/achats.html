@@ -35,7 +35,6 @@
       let currentCardIndex = 0
       const cardsPerPage = 10
       let cardData = []
-      //helloWorld()
 
       menuHamburger.addEventListener('click', () => {
         navLinks.classList.toggle('mobile-menu')
@@ -70,18 +69,7 @@
           const cardContainer = document.createElement('div')
           cardContainer.className = 'bouton-booster'
 
-          const payerButton = document.createElement('button')
-          payerButton.className = 'payer-button'
-          payerButton.textContent = 'Payer'
-          payerButton.style.display = 'none'
-
-          cardContainer.addEventListener('click', () => {
-            const payerButtons = document.querySelectorAll('.payer-button')
-            payerButtons.forEach(button => {
-              button.style.display = 'none'
-            })
-            payerButton.style.display = 'block'
-          })
+          cardContainer.addEventListener('click', () => {})
 
           const name = document.createElement('p')
           name.className = 'nom-booster'
@@ -95,12 +83,9 @@
           imgBooster.className = 'img-booster'
           imgBooster.src = `./public/${name.textContent}.jpg`
 
-          payerButton.addEventListener('click', () => {})
-
           cardContainer.appendChild(imgBooster)
           cardContainer.appendChild(name)
           cardContainer.appendChild(prix)
-          cardContainer.appendChild(payerButton)
 
           content.appendChild(cardContainer)
         }
