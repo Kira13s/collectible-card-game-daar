@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokémon TCG</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="module" src="/src/backend/InitCollection.tsx">loadCollection()</script>
   </head>
   <body>
     <!--Navigation Bar => logo à gauche et menu à droite -->
@@ -24,13 +25,13 @@
       <img src="./public/menu_hamburger.png" alt="menu hamburger" class="menu-hamburger"></img>
     </nav></div>
     <div class="nomSeries">BASE</div>
+    <script type="module" src="/src/main.tsx"></script>
     <div id="content" class="collection"></div>
     <!-- Les cartes sont affichées ici -->
     <div id="root"></div>
 
     
 <script type="module">
-    
   const menuHamburger = document.querySelector('.menu-hamburger');
   const navLinks = document.querySelector('.nav-links');
   let currentCardIndex = 0;

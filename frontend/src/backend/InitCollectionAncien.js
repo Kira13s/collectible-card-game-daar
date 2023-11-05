@@ -40,7 +40,7 @@ exports.loadCollection = void 0;
 var fs = require("fs");
 var readline = require("readline");
 var constants_js_1 = require("./constants.js");
-var App_1 = require("../App");
+var App_1 = require("@/App");
 function loadCollection() {
     return __awaiter(this, void 0, void 0, function () {
         var wallet, mainContract_1, sets;

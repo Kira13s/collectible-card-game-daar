@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokémon TCG</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="src/backend/Booster.js"></script>
   </head>
   <body>
     <div class="nav-container">
@@ -26,11 +25,11 @@
         />
       </nav>
     </div>
-
     <div id="content" class="collection"></div>
+
     <div id="root"></div>
 
-    <script>
+    <script type="module">
       const menuHamburger = document.querySelector('.menu-hamburger')
       const navLinks = document.querySelector('.nav-links')
       let currentCardIndex = 0
@@ -68,7 +67,6 @@
           if (i >= cardData.length) {
             break
           }
-
           const cardContainer = document.createElement('div')
           cardContainer.className = 'bouton-booster'
 
@@ -97,9 +95,8 @@
           imgBooster.className = 'img-booster'
           imgBooster.src = `./public/${name.textContent}.jpg`
 
-          payerButton.addEventListener('click', () => {
-            const boost = buyBooster('b1')
-          })
+          payerButton.addEventListener('click', () => {})
+
           cardContainer.appendChild(imgBooster)
           cardContainer.appendChild(name)
           cardContainer.appendChild(prix)
@@ -111,5 +108,6 @@
 
       loadCardData()
     </script>
+    <script type="module" src="/src/main2.tsx"></script>
   </body>
 </html>

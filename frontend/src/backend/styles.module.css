@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+}
+
+.grid {
+  display: grid;
+  gap: 1px;
+  margin: 0 auto;
+}
+
+.cell {
+  background: #ddd;
+}
+/* TopBar.css */
+
+.topBar {
+  display: flex;
+  align-items: center;
+}
+
+.logoContainer {
+  margin-left: 10px;
+  max-width: 25%;
+}
+
+.logo {
+  margin-left: 10%;
+  width: 80%; /* Ajustez la largeur en fonction de la taille souhaitée */
+  height: auto;
+  object-fit: cover;
+}
+
+.menu {
+  background-color: #0074cc; /* Couleur de fond de la barre supérieure */
+  color: black; /* Couleur du texte */
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+}
+
+.elem_menu {
+  margin-left: 10%;
+  width: 80%;
+}
+/* Menu.css */
+
+.menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  background-color: #0074cc; /* Couleur de fond du menu */
+}
+
+.bouton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(64, 63, 63); /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+  border: none; /* Supprime la bordure */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur de la souris */
+  text-align: center; /* Centrer le texte */
+  text-decoration: none; /* Supprimer la décoration du texte (liens) */
+  font-size: 16px; /* Taille de la police */
+  margin-left: 45%;
+}
+
+/* Style lorsque le bouton est survolé (hover) */
+.bouton:hover {
+  background-color: rgb(50, 50, 50); /* Couleur de fond au survol */
+}
+
+/* Style lorsque le bouton est actif (cliqué) */
+.bouton:active {
+  background-color: rgb(5, 67, 5); /* Couleur de fond lorsque cliqué */
+}
+
+/* Style lorsque le bouton est désactivé */
+.bouton:disabled {
+  background-color: #ccc; /* Couleur de fond désactivée */
+  cursor: not-allowed; /* Curseur "non autorisé" */
+}

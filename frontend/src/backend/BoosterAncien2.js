@@ -38,10 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.buyBooster = void 0;
 var ethers_1 = require("ethers");
-var react_1 = require("react");
-var ethereum = require("../lib/ethereum");
-var main = require("../lib/main");
-//import { useWallet } from '@/App'
+var App_1 = require("@/App");
 function buyBooster(name) {
     return __awaiter(this, void 0, void 0, function () {
         var _this = this;
@@ -51,7 +48,7 @@ function buyBooster(name) {
                     var _this = this;
                     return __generator(this, function (_a) {
                         try {
-                            wallet = useWallet();
+                            wallet = (0, App_1.useWallet)();
                             if (wallet) {
                                 provider = wallet.details.provider;
                                 account_1 = wallet.details.account;
@@ -64,23 +61,20 @@ function buyBooster(name) {
                                         return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    balanceInEther = ethers_1.ethers.utils.formatEther(balance);
+                                                    balanceInEther = ethers_1.ethers.utils.parseEther(ethers_1.ethers.utils.formatEther(balance));
                                                     return [4 /*yield*/, contract_1.getCostBooster(name)];
                                                 case 1:
                                                     cost = _a.sent();
-                                                    return [4 /*yield*/, cost.wait()];
-                                                case 2:
-                                                    _a.sent();
-                                                    if (!(balanceInEther >= cost)) return [3 /*break*/, 5];
+                                                    if (!(balanceInEther >= cost)) return [3 /*break*/, 4];
                                                     return [4 /*yield*/, contract_1.buyBooster(account_1, name)];
-                                                case 3:
+                                                case 2:
                                                     transaction = _a.sent();
                                                     return [4 /*yield*/, transaction.wait()];
-                                                case 4:
+                                                case 3:
                                                     _a.sent();
                                                     resolve(true);
-                                                    _a.label = 5;
-                                                case 5: return [2 /*return*/];
+                                                    _a.label = 4;
+                                                case 4: return [2 /*return*/];
                                             }
                                         });
                                     }); })
@@ -100,47 +94,3 @@ function buyBooster(name) {
     });
 }
 exports.buyBooster = buyBooster;
-var useAffect = function (asyncEffect, dependencies) {
-    if (dependencies === void 0) { dependencies = []; }
-    var cancelerRef = (0, react_1.useRef)();
-    (0, react_1.useEffect)(function () {
-        asyncEffect()
-            .then(function (canceler) { return (cancelerRef.current = canceler); })
-            .catch(function (error) { return console.warn('Uncatched error', error); });
-        return function () {
-            if (cancelerRef.current) {
-                cancelerRef.current();
-                cancelerRef.current = undefined;
-            }
-        };
-    }, dependencies);
-};
-var useWallet = function () {
-    var _a = (0, react_1.useState)(), details = _a[0], setDetails = _a[1];
-    var _b = (0, react_1.useState)(), contract = _b[0], setContract = _b[1];
-    useAffect(function () { return __awaiter(void 0, void 0, void 0, function () {
-        var details_, contract_;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, ethereum.connect('metamask')];
-                case 1:
-                    details_ = _a.sent();
-                    if (!details_)
-                        return [2 /*return*/];
-                    setDetails(details_);
-                    return [4 /*yield*/, main.init(details_)];
-                case 2:
-                    contract_ = _a.sent();
-                    if (!contract_)
-                        return [2 /*return*/];
-                    setContract(contract_);
-                    return [2 /*return*/];
-            }
-        });
-    }); }, []);
-    return (0, react_1.useMemo)(function () {
-        if (!details || !contract)
-            return;
-        return { details: details, contract: contract };
-    }, [details, contract]);
-};

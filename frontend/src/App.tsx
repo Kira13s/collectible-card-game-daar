@@ -37,3 +37,12 @@ export const useWallet = () => {
     return { details, contract }
   }, [details, contract])
 }
+
+export const App = () => {
+  const wallet = useWallet()
+  return (
+    <div>
+      <h1>Welcome to Pokémon TCG</h1>
+    </div>
+  )
+}

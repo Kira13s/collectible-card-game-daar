@@ -45,4 +45,4 @@ export async function transferNFT(collectionName : string, cardNumber : string, 
         
 
     }
-}*/ 
+}*/
